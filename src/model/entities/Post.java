@@ -1,5 +1,7 @@
 package model.entities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +12,8 @@ public class Post {
     private String content;
     private Integer likes;
     private List<Comment> comments = new ArrayList<>();
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public Post(){}
 
@@ -29,8 +33,8 @@ public class Post {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(title +"\n");
-        sb.append(likes +"likes - ");
-        sb.append(moment);
+        sb.append(likes +" likes - ");
+        sb.append(sdf.format(moment));
         sb.append("\n"+content);
         sb.append("\nComments:\n");
         for(Comment c : comments){
