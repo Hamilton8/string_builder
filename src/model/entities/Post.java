@@ -26,6 +26,16 @@ public class Post {
     public void removeComment(Comment comment){
         this.comments.remove(comment);
     }
-
-
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(title +"\n");
+        sb.append(likes +"likes - ");
+        sb.append(moment);
+        sb.append("\n"+content);
+        sb.append("\nComments:\n");
+        for(Comment c : comments){
+            sb.append(c.getText()+"\n");
+        }
+        return sb.toString();
+    }
 }
